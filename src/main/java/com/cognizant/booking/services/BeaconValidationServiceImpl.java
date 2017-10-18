@@ -13,7 +13,7 @@ public class BeaconValidationServiceImpl implements BeaconValidationService {
 
 	@Override
 	public boolean validate(final String beaconId) {
-		return bookingApi.validateBecon(beaconId);
+		return false;
 	}
 
 }
