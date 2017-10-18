@@ -19,8 +19,8 @@ public class BookingApiImpl implements BookingApi {
 
 	@Override
 	public RegistrationInformation registerBecon(final DeviceInformation deviceInformation) {
-		final String url = BookingSupportUrlCreator.getInstance().addServiceType(ServiceTypes.BECON)
-				.addMethodName(METHOD_NAME_BECON_REGISTER).build();
+		final String url = BookingSupportUrlCreator.getInstance()
+				.buildRootUrl(ServiceTypes.BECON_REGISTER, METHOD_NAME_BECON_REGISTER).build();
 		return callBookingService(null, HttpMethod.POST, deviceInformation, RegistrationInformation.class, url);
 	}
 
