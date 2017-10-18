@@ -1,10 +1,11 @@
 package com.cognizant.booking.client;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.cognizant.booking.ApplicationProperties;
 import com.cognizant.booking.enums.ServiceTypes;
 
-public class BookingSupportUrlCreator {
+public final class BookingSupportUrlCreator {
 
 	private BookingSupportUrlCreator() {
 	}
@@ -15,13 +16,13 @@ public class BookingSupportUrlCreator {
 
 	protected static class Builder {
 
-		@Value("${support.service.root.url}")
 		private String url;
 
-		@Value("${support.service.url.api.info}")
-		private String apiInfo;
+		@Autowired
+		private ApplicationProperties applicationProperties;
 
 		private Builder() {
+			this.url = applicationProperties.getServices().getRootUrl();
 		}
 
 		public String build() {
@@ -31,13 +32,9 @@ public class BookingSupportUrlCreator {
 			return this.url;
 		}
 
-		Builder addServiceType(final ServiceTypes serviceTypes) {
-			this.url = this.url.concat("/").concat(serviceTypes.getServiceType()).concat(apiInfo);
-			return this;
-		}
-
-		Builder addMethodName(final String methodName) {
-			this.url = this.url.concat(methodName);
+		Builder buildRootUrl(final ServiceTypes serviceTypes, final String methodName) {
+			this.url = String.format(this.url, serviceTypes.getServiceType(), serviceTypes.getServiceCategory(),
+					methodName);
 			return this;
 		}
 
