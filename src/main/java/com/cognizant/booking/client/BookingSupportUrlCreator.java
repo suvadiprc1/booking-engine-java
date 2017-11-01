@@ -22,7 +22,8 @@ public final class BookingSupportUrlCreator {
 		private ApplicationProperties applicationProperties;
 
 		private Builder() {
-			this.url = applicationProperties.getServices().getRootUrl();
+			//this.url = applicationProperties.getServices().getRootUrl();
+			this.url = "http://localhost:8082/%s/api/%s/%s";
 		}
 
 		public String build() {

@@ -1,4 +1,5 @@
 *.prefs
+.idea
 target/
 .DS_Store
 .project
