@@ -1,24 +1,23 @@
 package com.cognizant.booking.client;
 
+import com.cognizant.booking.dtos.DeviceInformation;
 import com.cognizant.booking.dtos.PointOfInterestRequest;
 import com.cognizant.booking.dtos.PointOfInterestResponse;
 import com.cognizant.booking.dtos.PushNotifyFCMRequest;
+import com.cognizant.booking.dtos.RegistrationInformation;
 import com.cognizant.booking.dtos.ReservationRequest;
 import com.cognizant.booking.dtos.ReservationResponse;
+import com.cognizant.booking.enums.ServiceTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
-import com.cognizant.booking.dtos.DeviceInformation;
-import com.cognizant.booking.dtos.RegistrationInformation;
-import com.cognizant.booking.enums.ServiceTypes;
-
 @Component
 public class BookingApiImpl implements BookingApi {
 
-    private static final String METHOD_NAME_BECON_REGISTER = "registerDevice";
+    private static final String METHOD_NAME_BECON_REGISTER = "addBecons";
     private static final String METHOD_NAME_GET_CURRENT_AND_FUTURE_RESERVATIONS = "getCurrentandFutureReservations";
     private static final String METHOD_NAME_GET_POI = "getAllPointsOfInterest";
 
@@ -28,7 +27,7 @@ public class BookingApiImpl implements BookingApi {
     @Override
     public RegistrationInformation registerBecon(final DeviceInformation deviceInformation) {
         final String url =
-            BookingSupportUrlCreator.getInstance().buildRootUrl(ServiceTypes.BECON_REGISTER, METHOD_NAME_BECON_REGISTER).build();
+            BookingSupportUrlCreator.getInstance().buildRootUrl(ServiceTypes.POI, METHOD_NAME_BECON_REGISTER).build();
         return callBookingService(null, HttpMethod.POST, deviceInformation, RegistrationInformation.class, url).getResponse();
     }
 

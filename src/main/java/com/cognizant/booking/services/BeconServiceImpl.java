@@ -1,5 +1,6 @@
 package com.cognizant.booking.services;
 
+import com.cognizant.booking.dtos.BookingResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,13 @@ public class BeconServiceImpl implements BeconService {
 	private BookingApi bookingApi;
 
 	@Override
-	public boolean registerBecon(final DeviceInformation deviceInformation) {
+	public BookingResponse registerBecon(final DeviceInformation deviceInformation) {
 
 		final RegistrationInformation registerBecon = bookingApi.registerBecon(deviceInformation);
-		return registerBecon.isRegistertered();
+		final BookingResponse bookingResponse = new BookingResponse();
+		bookingResponse.setMessage("Becon registration status");
+		bookingResponse.setSuccess(registerBecon.isRegistertered());
+		return bookingResponse;
 	}
 
 }

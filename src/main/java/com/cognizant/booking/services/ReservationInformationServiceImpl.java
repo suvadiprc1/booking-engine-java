@@ -1,6 +1,7 @@
 package com.cognizant.booking.services;
 
 import com.cognizant.booking.client.BookingApi;
+import com.cognizant.booking.dtos.BookingResponse;
 import com.cognizant.booking.dtos.PointOfInterestRequest;
 import com.cognizant.booking.dtos.PointOfInterestResponse;
 import com.cognizant.booking.dtos.PushNotificationRequest;
@@ -29,16 +30,25 @@ public class ReservationInformationServiceImpl implements ReservationInformation
 
     // TODO: May be a Async call - lets test and see
     @Override
-    public void getReservationInformation(final PushNotificationRequest pushNotificationRequest) {
+    public BookingResponse getReservationInformation(final PushNotificationRequest pushNotificationRequest) {
         final ReservationRequest reservationRequest = reservationMapper.toReservationRQ(pushNotificationRequest);
         final ReservationResponse reservationResponse = bookingApi.getReservation(reservationRequest);
         final PointOfInterestRequest pointOfInterestRequest = poiMapper.toPoi(pushNotificationRequest);
         final PointOfInterestResponse pointOfInterestResponse = pointOfInterestService.getPointOfInterests(pointOfInterestRequest);
 
         // Call push notification service with reservation data
-        final PushNotifyFCMRequest pushNotifyFCMRequest =
-            pushNotificationMapper.toPushNotificationRQ(reservationResponse, pointOfInterestResponse, pushNotificationRequest);
-        bookingApi.sendPushNotification(pushNotifyFCMRequest);
+        try {
+            final PushNotifyFCMRequest pushNotifyFCMRequest =
+                pushNotificationMapper.toPushNotificationRQ(reservationResponse, pointOfInterestResponse, pushNotificationRequest);
+            bookingApi.sendPushNotification(pushNotifyFCMRequest);
+            final BookingResponse bookingResponse = new BookingResponse();
+            bookingResponse.setSuccess(true);
+            bookingResponse.setMessage("Push notification sent successfully!");
+            return bookingResponse;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Push notification failed!", e);
+        }
     }
 }
 

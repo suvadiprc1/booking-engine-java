@@ -1,5 +1,6 @@
 package com.cognizant.booking.controllers;
 
+import com.cognizant.booking.dtos.BookingResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,8 +16,8 @@ public class BeconController {
 	@Autowired
 	private BeconService beconService;
 
-	@RequestMapping(value = "/api/booking/device/register", method = RequestMethod.POST)
-	public boolean registerBecons(@RequestBody final DeviceInformation deviceInformation) {
+	@RequestMapping(value = "/info/booking/device/registerDevice", method = RequestMethod.POST)
+	public BookingResponse registerBecons(@RequestBody final DeviceInformation deviceInformation) {
 		return beconService.registerBecon(deviceInformation);
 	}
 
