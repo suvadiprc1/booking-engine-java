@@ -27,6 +27,7 @@ public class ReservationInformationServiceImpl implements ReservationInformation
     @Autowired
     private PointOfInterestService pointOfInterestService;
 
+    // TODO: May be a Async call - lets test and see
     @Override
     public void getReservationInformation(final PushNotificationRequest pushNotificationRequest) {
         final ReservationRequest reservationRequest = reservationMapper.toReservationRQ(pushNotificationRequest);

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.cognizant.booking</groupId>
-	<artifactId>booking-engine-layer</artifactId>
+	<artifactId>booking-engine-java</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -44,5 +44,18 @@
 			</dependencies>
 		</profile>
 	</profiles>
+	
+	<repositories>
+	    <repository>
+	        <id>spring-releases</id>
+	        <url>https://repo.spring.io/libs-release</url>
+	    </repository>
+	</repositories>
+	<pluginRepositories>
+	    <pluginRepository>
+	        <id>spring-releases</id>
+	        <url>https://repo.spring.io/libs-release</url>
+	    </pluginRepository>
+	</pluginRepositories>
 
 </project>
