@@ -1,9 +1,10 @@
 {
-	"id": "cff032f7-cfae-a85b-c3f4-ef86ca4e87c4",
+	"id": "830df497-c399-a624-e545-828a61eceac1",
 	"name": "Booking Engine Java Layer",
 	"description": "",
 	"order": [
-		"7fcfcaad-1b2c-527b-d912-571eece29d81"
+		"4949c1fc-d7a5-7ded-a0b0-9af40029b4da",
+		"36f401f6-e79f-021e-3f88-26cc8d777961"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -12,7 +13,58 @@
 	"public": false,
 	"requests": [
 		{
-			"id": "7fcfcaad-1b2c-527b-d912-571eece29d81",
+			"id": "36f401f6-e79f-021e-3f88-26cc8d777961",
+			"headers": "//Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "http://localhost:8080/api/booking/device/info?assetId=1234&region=9860&uuid=123",
+			"queryParams": [
+				{
+					"key": "assetId",
+					"value": "1234",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "region",
+					"value": "9860",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "uuid",
+					"value": "123",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509700478735,
+			"name": "Validate Beacon",
+			"description": "",
+			"collectionId": "830df497-c399-a624-e545-828a61eceac1",
+			"responses": [],
+			"rawModeData": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}"
+		},
+		{
+			"id": "4949c1fc-d7a5-7ded-a0b0-9af40029b4da",
 			"headers": "Content-Type: application/json\n",
 			"headerData": [
 				{
@@ -36,9 +88,10 @@
 			"time": 1508322242385,
 			"name": "Device Ids Registration",
 			"description": "",
-			"collectionId": "cff032f7-cfae-a85b-c3f4-ef86ca4e87c4",
+			"collectionId": "830df497-c399-a624-e545-828a61eceac1",
 			"responses": [],
-			"rawModeData": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}"
+			"rawModeData": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}",
+			"collection_id": "830df497-c399-a624-e545-828a61eceac1"
 		}
 	]
 }

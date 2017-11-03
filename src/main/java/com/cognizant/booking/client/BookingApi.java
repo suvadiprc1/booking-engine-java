@@ -1,6 +1,7 @@
 package com.cognizant.booking.client;
 
 import com.cognizant.booking.dtos.DeviceInformation;
+import com.cognizant.booking.dtos.GetBeconRequest;
 import com.cognizant.booking.dtos.PointOfInterestRequest;
 import com.cognizant.booking.dtos.PointOfInterestResponse;
 import com.cognizant.booking.dtos.PushNotifyFCMRequest;
@@ -17,6 +18,8 @@ public interface BookingApi {
 	void sendPushNotification(PushNotifyFCMRequest pushNotifyFCMRequest);
 
 	PointOfInterestResponse getPointOfInterests(PointOfInterestRequest pointOfInterestRequest);
+
+	RegistrationInformation isBeaconPresent(GetBeconRequest getBeconRequest);
 
 
 }
