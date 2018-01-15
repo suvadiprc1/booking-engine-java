@@ -17,12 +17,12 @@ public class BeconController {
     @Autowired
     private BeconService beconService;
 
-    @RequestMapping(value = "/info/booking/device/registerDevice", method = RequestMethod.POST)
+    @RequestMapping(value = "/service/info/booking/device/registerDevice", method = RequestMethod.POST)
     public BookingResponse registerBecons(@RequestBody final DeviceInformation deviceInformation) {
         return beconService.registerBecon(deviceInformation);
     }
 
-    @RequestMapping("/api/booking/device/info")
+    @RequestMapping("/service/api/booking/device/info")
     public BookingResponse validateBecon(@RequestParam final String assetId, @RequestParam final String region,
         @RequestParam final String uuid) {
         return beconService.validate(assetId, region, uuid);
