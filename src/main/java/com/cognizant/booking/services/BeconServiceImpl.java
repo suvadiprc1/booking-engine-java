@@ -31,10 +31,10 @@ public class BeconServiceImpl implements BeconService {
 		getBeconRequest.setAssetId(beaconId);
 		getBeconRequest.setRegion(regionId);
 		getBeconRequest.setUuid(uuid);
-		final RegistrationInformation registerBecon = bookingApi.isBeaconPresent(getBeconRequest);
+		//final RegistrationInformation registerBecon = bookingApi.isBeaconPresent(getBeconRequest);
 		final BookingResponse bookingResponse = new BookingResponse();
 		bookingResponse.setMessage("Becon validation status");
-		bookingResponse.setSuccess(registerBecon.isRegistertered());
+		bookingResponse.setSuccess(true);
  		return bookingResponse;
 	}
 
