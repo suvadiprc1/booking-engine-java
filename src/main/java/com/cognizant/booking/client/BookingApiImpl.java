@@ -1,5 +1,6 @@
 package com.cognizant.booking.client;
 
+import com.cognizant.booking.ApplicationProperties;
 import com.cognizant.booking.dtos.DeviceInformation;
 import com.cognizant.booking.dtos.GetBeconRequest;
 import com.cognizant.booking.dtos.PointOfInterestRequest;
@@ -26,17 +27,21 @@ public class BookingApiImpl implements BookingApi {
     @Autowired
     private BaseClient baseClient;
 
+    @Autowired
+    private ApplicationProperties applicationProperties;
+
     @Override
     public RegistrationInformation registerBecon(final DeviceInformation deviceInformation) {
-        final String url =
-            BookingSupportUrlCreator.getInstance().buildRootUrl(ServiceTypes.POI, METHOD_NAME_BECON_REGISTER).build();
+        final String url = BookingSupportUrlCreator.getInstance()
+            .buildRootUrl(applicationProperties.getServices().getRootUrl(), ServiceTypes.POI, METHOD_NAME_BECON_REGISTER).build();
         return callBookingService(null, HttpMethod.POST, deviceInformation, RegistrationInformation.class, url).getResponse();
     }
 
     @Override
     public ReservationResponse getReservation(final ReservationRequest reservationRequest) {
         final String url = BookingSupportUrlCreator.getInstance()
-            .buildRootUrl(ServiceTypes.RESERVATION, METHOD_NAME_GET_CURRENT_AND_FUTURE_RESERVATIONS).build();
+            .buildRootUrl(applicationProperties.getServices().getRootUrl(), ServiceTypes.RESERVATION,
+                METHOD_NAME_GET_CURRENT_AND_FUTURE_RESERVATIONS).build();
         return callBookingService(null, HttpMethod.POST, reservationRequest, ReservationResponse.class, url).getResponse();
     }
 
@@ -58,14 +63,15 @@ public class BookingApiImpl implements BookingApi {
 
     @Override
     public PointOfInterestResponse getPointOfInterests(final PointOfInterestRequest pointOfInterestRequest) {
-        final String url = BookingSupportUrlCreator.getInstance().buildRootUrl(ServiceTypes.POI, METHOD_NAME_GET_POI).build();
+        final String url = BookingSupportUrlCreator.getInstance()
+            .buildRootUrl(applicationProperties.getServices().getRootUrl(), ServiceTypes.POI, METHOD_NAME_GET_POI).build();
         return callBookingService(null, HttpMethod.POST, pointOfInterestRequest, PointOfInterestResponse.class, url).getResponse();
     }
 
     @Override
     public RegistrationInformation isBeaconPresent(final GetBeconRequest getBeconRequest) {
-        final String url =
-            BookingSupportUrlCreator.getInstance().buildRootUrl(ServiceTypes.POI, METHOD_NAME_IS_BEACON_VALID).build();
+        final String url = BookingSupportUrlCreator.getInstance()
+            .buildRootUrl(applicationProperties.getServices().getRootUrl(), ServiceTypes.POI, METHOD_NAME_IS_BEACON_VALID).build();
         return callBookingService(null, HttpMethod.POST, getBeconRequest, RegistrationInformation.class, url).getResponse();
     }
 
