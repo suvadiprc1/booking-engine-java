@@ -1,1 +1,0 @@
-web: java -jar target/booking-engine-java.war
