@@ -49,9 +49,7 @@ public class BookingApiImpl implements BookingApi {
     public void sendPushNotification(final PushNotifyFCMRequest pushNotifyFCMRequest) {
         final String url = "https://fcm.googleapis.com/fcm/send";
         final HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Authorization", "key=AAAAaOAaOj8:APA91bGRBv8MuFw_wc0rc51m"
-            + "-p_eipyGs8cZCrhhUzqRga6OtL7KDiusX4nJuRjeHi6eChxltBiXOcSwXHgeSrMhhALzt3dTflx3Nor3NhEvtq-ZpbkEj5mq5_ZK1rtDfNxksX"
-            + "-gpnBm");
+        httpHeaders.add("Authorization", "key=AAAAaOAaOj8:APA91bGRBv8MuFw_wc0rc51m-p_eipyGs8cZCrhhUzqRga6OtL7KDiusX4nJuRjeHi6eChxltBiXOcSwXHgeSrMhhALzt3dTflx3Nor3NhEvtq-ZpbkEj5mq5_ZK1rtDfNxksX-gpnBm");
         httpHeaders.add("Content-Type", "application/json");
         final BaseResponseWrapper<Object> objectBaseResponseWrapper =
             callBookingService(httpHeaders, HttpMethod.POST, pushNotifyFCMRequest, null, url);
