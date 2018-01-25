@@ -15,6 +15,7 @@ public class PushNotificationMapper extends BaseMapper {
         final PushNotificationResponse pushNotificationResponse = tryMapping(reservationResponse, PushNotificationResponse.class);
         tryMapping(pointOfInterestResponse, pushNotificationResponse);
         tryMapping(pushNotificationRequest, pushNotificationResponse);
+        pushNotificationResponse.setCallingIdentity(pushNotificationRequest.getIdentifier());
         final PushNotifyFCMRequest pushNotifyFCMRequest = new PushNotifyFCMRequest();
         pushNotifyFCMRequest.setData(pushNotificationResponse);
         tryMapping(pushNotificationRequest ,pushNotifyFCMRequest);

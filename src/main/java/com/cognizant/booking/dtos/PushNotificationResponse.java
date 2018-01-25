@@ -1,5 +1,7 @@
 package com.cognizant.booking.dtos;
 
+import org.dozer.Mapping;
+
 import java.io.Serializable;
 import java.util.List;
 
