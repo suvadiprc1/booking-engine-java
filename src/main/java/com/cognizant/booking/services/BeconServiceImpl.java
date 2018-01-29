@@ -35,7 +35,7 @@ public class BeconServiceImpl implements BeconService {
 		final BookingResponse bookingResponse = new BookingResponse();
 		bookingResponse.setMessage("Becon validation status");
 		bookingResponse.setSuccess(registerBecon.isRegistertered());
-		bookingResponse.setAssetInfo(registerBecon.getAssetInfo());
+		bookingResponse.setDeviceInfo(registerBecon.getDeviceInfo());
  		return bookingResponse;
 	}
 
