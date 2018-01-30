@@ -3,7 +3,7 @@ package com.cognizant.booking.dtos;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class AssetInfo implements Serializable {
+public class DeviceInfo implements Serializable {
 
 	private String uuid;
 	private String region;
@@ -74,10 +74,10 @@ public class AssetInfo implements Serializable {
 		if (obj == null) {
 			return false;
 		}
-		if (!AssetInfo.class.isAssignableFrom(obj.getClass())) {
+		if (!DeviceInfo.class.isAssignableFrom(obj.getClass())) {
 			return false;
 		}
-		final AssetInfo other = (AssetInfo) obj;
+		final DeviceInfo other = (DeviceInfo) obj;
 		if ((this.uuid == null) ? (other.uuid != null) : !this.uuid.equals(other.uuid)) {
 			return false;
 		}

@@ -6,7 +6,7 @@ public class BookingResponse implements Serializable {
 
     private boolean success;
     private String message;
-    private AssetInfo assetInfo;
+    private DeviceInfo deviceInfo;
 
     public boolean isSuccess() {
         return success;
@@ -24,11 +24,11 @@ public class BookingResponse implements Serializable {
         this.message = message;
     }
 
-    public AssetInfo getAssetInfo() {
-        return assetInfo;
+    public DeviceInfo getDeviceInfo() {
+        return deviceInfo;
     }
 
-    public void setAssetInfo(AssetInfo assetInfo) {
-        this.assetInfo = assetInfo;
+    public void setDeviceInfo(DeviceInfo deviceInfo) {
+        this.deviceInfo = deviceInfo;
     }
 }
