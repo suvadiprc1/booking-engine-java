@@ -7,14 +7,13 @@ import java.util.List;
 
 public class PointOfInterestResponse implements Serializable {
     @Mapping("poi")
-    private List<PointOfInterest> pointsOfInterest;
+    private List<PointOfInterest> pointOfInterests;
 
     public List<PointOfInterest> getPointOfInterests() {
-        return pointsOfInterest;
+        return pointOfInterests;
     }
 
     public void setPointOfInterests(List<PointOfInterest> pointOfInterests) {
-        this.pointsOfInterest = pointOfInterests;
+        this.pointOfInterests = pointOfInterests;
     }
-
 }

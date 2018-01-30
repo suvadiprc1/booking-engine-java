@@ -5,33 +5,39 @@ import java.io.Serializable;
 public class PointOfInterest implements Serializable {
 
 	private String name;
-	private PromotionalOffer promoOffers;
-	private Distance driveDistance;
+	private PromotionalOffer promotionalOffers;
+	private Distance driveDistanceDetails;
 	private String specialInstructions;
-	
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public PromotionalOffer getPromoOffers() {
-		return promoOffers;
+
+	public PromotionalOffer getPromotionalOffers() {
+		return promotionalOffers;
 	}
-	public void setPromoOffers(PromotionalOffer promoOffers) {
-		this.promoOffers = promoOffers;
+
+	public void setPromotionalOffers(PromotionalOffer promotionalOffers) {
+		this.promotionalOffers = promotionalOffers;
 	}
-	public Distance getDriveDistance() {
-		return driveDistance;
+
+	public Distance getDriveDistanceDetails() {
+		return driveDistanceDetails;
 	}
-	public void setDriveDistance(Distance driveDistance) {
-		this.driveDistance = driveDistance;
+
+	public void setDriveDistanceDetails(Distance driveDistanceDetails) {
+		this.driveDistanceDetails = driveDistanceDetails;
 	}
+
 	public String getSpecialInstructions() {
 		return specialInstructions;
 	}
+
 	public void setSpecialInstructions(String specialInstructions) {
 		this.specialInstructions = specialInstructions;
 	}
-	
 }
