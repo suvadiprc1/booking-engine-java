@@ -5,8 +5,8 @@ import java.io.Serializable;
 public class PointOfInterest implements Serializable {
 
 	private String name;
-	private PromotionalOffer promotionalOffers;
-	private Distance driveDistanceDetails;
+	private PromotionalOffer promoOffers;
+	private Distance driveDistance;
 	private String specialInstructions;
 
 	public String getName() {
@@ -17,20 +17,20 @@ public class PointOfInterest implements Serializable {
 		this.name = name;
 	}
 
-	public PromotionalOffer getPromotionalOffers() {
-		return promotionalOffers;
+	public PromotionalOffer getPromoOffers() {
+		return promoOffers;
 	}
 
-	public void setPromotionalOffers(PromotionalOffer promotionalOffers) {
-		this.promotionalOffers = promotionalOffers;
+	public void setPromoOffers(PromotionalOffer promoOffers) {
+		this.promoOffers = promoOffers;
 	}
 
-	public Distance getDriveDistanceDetails() {
-		return driveDistanceDetails;
+	public Distance getDriveDistance() {
+		return driveDistance;
 	}
 
-	public void setDriveDistanceDetails(Distance driveDistanceDetails) {
-		this.driveDistanceDetails = driveDistanceDetails;
+	public void setDriveDistance(Distance driveDistance) {
+		this.driveDistance = driveDistance;
 	}
 
 	public String getSpecialInstructions() {

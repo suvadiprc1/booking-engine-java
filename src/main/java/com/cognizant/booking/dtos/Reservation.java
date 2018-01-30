@@ -11,8 +11,8 @@ public class Reservation implements Serializable {
 	private Double bookingPrice;
 	private String companyName;
 	private String companyWebsite;
-	private PromotionalOffer promotionalOffers;
-	private Distance driveDistanceDetails;
+	private PromotionalOffer promoOffers;
+	private Distance driveDistance;
 	private String specialInstructions;
 	private String vehicleNo;
 	
@@ -73,19 +73,19 @@ public class Reservation implements Serializable {
 		this.vehicleNo = vehicleNo;
 	}
 
-	public PromotionalOffer getPromotionalOffers() {
-		return promotionalOffers;
+	public PromotionalOffer getPromoOffers() {
+		return promoOffers;
 	}
 
-	public void setPromotionalOffers(PromotionalOffer promotionalOffers) {
-		this.promotionalOffers = promotionalOffers;
+	public void setPromoOffers(PromotionalOffer promoOffers) {
+		this.promoOffers = promoOffers;
 	}
 
-	public Distance getDriveDistanceDetails() {
-		return driveDistanceDetails;
+	public Distance getDriveDistance() {
+		return driveDistance;
 	}
 
-	public void setDriveDistanceDetails(Distance driveDistanceDetails) {
-		this.driveDistanceDetails = driveDistanceDetails;
+	public void setDriveDistance(Distance driveDistance) {
+		this.driveDistance = driveDistance;
 	}
 }
