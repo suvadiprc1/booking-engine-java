@@ -10,6 +10,8 @@ import com.cognizant.booking.dtos.RegistrationInformation;
 import com.cognizant.booking.dtos.ReservationRequest;
 import com.cognizant.booking.dtos.ReservationResponse;
 import com.cognizant.booking.enums.ServiceTypes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -23,6 +25,7 @@ public class BookingApiImpl implements BookingApi {
     private static final String METHOD_NAME_GET_CURRENT_AND_FUTURE_RESERVATIONS = "getCurrentandFutureReservations";
     private static final String METHOD_NAME_GET_POI = "getAllPointsOfInterest";
     private static final String METHOD_NAME_IS_BEACON_VALID = "isBeconValid";
+    private static final Logger LOGGER = LoggerFactory.getLogger(BookingApiImpl.class);
 
     @Autowired
     private BaseClient baseClient;
@@ -47,6 +50,7 @@ public class BookingApiImpl implements BookingApi {
 
     @Override
     public void sendPushNotification(final PushNotifyFCMRequest pushNotifyFCMRequest) {
+        LOGGER.info("-------------------BManager---------------- "+pushNotifyFCMRequest.getTo());
         final String url = "https://fcm.googleapis.com/fcm/send";
         final HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Authorization", "key=AAAAaOAaOj8:APA91bGRBv8MuFw_wc0rc51m-p_eipyGs8cZCrhhUzqRga6OtL7KDiusX4nJuRjeHi6eChxltBiXOcSwXHgeSrMhhALzt3dTflx3Nor3NhEvtq-ZpbkEj5mq5_ZK1rtDfNxksX-gpnBm");
