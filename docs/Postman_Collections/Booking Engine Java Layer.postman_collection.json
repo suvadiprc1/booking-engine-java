@@ -1,105 +1,129 @@
 {
-	"variables": [],
-	"info": {
-		"name": "Booking Engine Java Middle Layer",
-		"_postman_id": "0b3a9622-9a58-84a7-b18d-50e12c4fe472",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
+	"id": "830df497-c399-a624-e545-828a61eceac1",
+	"name": "Booking Engine Java Layer",
+	"description": "",
+	"order": [
+		"8530ce62-9418-12aa-c296-e6aa3f84488c",
+		"4949c1fc-d7a5-7ded-a0b0-9af40029b4da",
+		"36f401f6-e79f-021e-3f88-26cc8d777961"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1476797519514,
+	"owner": 0,
+	"public": false,
+	"requests": [
 		{
-			"name": "Push Notification Request",
-			"request": {
-				"url": "{{RootUrl}}/service/api/booking/notify/info",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"memberId\":\"1\",\n\"latitude\":50,\n\"longitude\":89.5,\n\"deviceId\":\"1234\",\n\"identifier\":\"Car Rental\",\n\"token\":\"450436414015\"\n}"
+			"id": "36f401f6-e79f-021e-3f88-26cc8d777961",
+			"headers": "//Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "{{RootUrl}}/api/booking/device/info?assetId=1234&region=9860&uuid=123",
+			"queryParams": [
+				{
+					"key": "assetId",
+					"value": "1234",
+					"equals": true,
+					"description": "",
+					"enabled": true
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "Device Ids Registration",
-			"request": {
-				"url": "{{RootUrl}}/service/info/booking/device/registerDevice",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}"
+				{
+					"key": "region",
+					"value": "9860",
+					"equals": true,
+					"description": "",
+					"enabled": true
 				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
+				{
+					"key": "uuid",
+					"value": "123",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509700796325,
 			"name": "Validate Beacon",
-			"request": {
-				"url": {
-					"raw": "{{RootUrl}}/service/api/booking/device/info?assetId=1234&region=9860&uuid=123",
-					"host": [
-						"{{RootUrl}}"
-					],
-					"path": [
-						"service",
-						"api",
-						"booking",
-						"device",
-						"info"
-					],
-					"query": [
-						{
-							"key": "assetId",
-							"value": "1234",
-							"equals": true,
-							"description": ""
-						},
-						{
-							"key": "region",
-							"value": "9860",
-							"equals": true,
-							"description": ""
-						},
-						{
-							"key": "uuid",
-							"value": "123",
-							"equals": true,
-							"description": ""
-						}
-					],
-					"variable": []
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": "",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}"
-				},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"collectionId": "830df497-c399-a624-e545-828a61eceac1",
+			"responses": [],
+			"rawModeData": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}"
+		},
+		{
+			"id": "4949c1fc-d7a5-7ded-a0b0-9af40029b4da",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{RootUrl}}/info/booking/device/registerDevice",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509700867274,
+			"name": "Device Ids Registration",
+			"description": "",
+			"collectionId": "830df497-c399-a624-e545-828a61eceac1",
+			"responses": [],
+			"rawModeData": "{\r\n  \"devices\": [{\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"1234\",\r\n  \t\"message\":\"Welcome to St.Loius Airport \",\r\n  \t\"longitude\":\"123.5\",\r\n  \t\"latitude\":\"206\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 1\"\r\n  },\r\n  {\r\n  \t\"uuid\":\"98765342\",\r\n  \t\"region\":\"9860\",\r\n  \t\"assetId\":\"5678\",\r\n  \t\"message\":\"Welcome to St.Loius Airport gateway 2\",\r\n  \t\"longitude\":\"109.5\",\r\n  \t\"latitude\":\"200\",\r\n  \t\"locationDetails\":\"St.Loius Airport shuttle 2\"\r\n  }],\r\n  \"appName\": \"EHI\"\r\n}"
+		},
+		{
+			"id": "8530ce62-9418-12aa-c296-e6aa3f84488c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{RootUrl}}/service/api/booking/notify/info",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1509534827140,
+			"name": "Push Notification Request",
+			"description": "",
+			"collectionId": "830df497-c399-a624-e545-828a61eceac1",
+			"responses": [],
+			"isFromCollection": true,
+			"collectionRequestId": "fa93a880-b229-e085-c08e-a2de1b5de874",
+			"rawModeData": "{\n\"memberId\":\"1\",\n\"latitude\":50,\n\"longitude\":89.5,\n\"deviceId\":\"1234\",\n\"identifier\":\"Car Rental\",\n\"token\":\"450436414015\"\n}"
 		}
 	]
 }
